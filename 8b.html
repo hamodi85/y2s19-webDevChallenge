@@ -1,0 +1,86 @@
+<html>
+<head>
+<link href="progress_bar_style.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+function animate_progressbar()
+{
+ $total_width=$("#progressbar_wrapper").width();
+ $width_inc=$total_width/10;
+ if($("#progressbar").width()<$total_width)
+ {
+  $width=$("#progressbar").width()+$width_inc;
+  $("#progressbar").animate({width:''+$width+''},300);
+ }
+}
+function reset_progressbar()
+{
+ $("#progressbar").animate({width:'0px'},300);
+}
+</script>
+<style>
+	
+
+body
+{
+ margin:0 auto;
+ padding:0px;
+ text-align:center;
+ width:100%;
+ font-family: "Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
+ background-color:#A9F5A9;
+}
+#wrapper
+{
+ margin:0 auto;
+ padding:0px;
+ text-align:center;
+ width:995px;
+}
+#progressbar_wrapper
+{
+ border:1px solid #088A08;
+ margin-left:345px;
+ margin-top:20px;
+ width:300px;
+ height:35px;
+ border-radius:3px;
+ overflow:hidden;
+}
+#progressbar
+{
+ width:0px;
+ height:35px;
+ border-radius:0px;
+ background-color:green;
+}
+#progressbar_div input[type="button"]
+{
+ background-color:#088A08;
+ border:none;
+ width:150px;
+ height:40px;
+ color:white;
+ border-radius:3px;
+ border-bottom:3px solid #0B610B;
+}
+
+
+</style>
+</head>
+<body>
+<div id="wrapper">
+
+<div id="progressbar_div">
+<div id="progressbar_wrapper">
+ <div id="progressbar"></div>
+</div>
+<p>
+<input type="button" value="ANIMATE" onclick="animate_progressbar();">
+<input type="button" value="RESET" onclick="reset_progressbar();">
+</p>
+</div>
+
+</div>
+</body>
+</html>

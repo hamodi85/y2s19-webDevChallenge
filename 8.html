@@ -1,0 +1,80 @@
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	var width = 1;
+
+function move() {
+  var elem = document.getElementById("myBar");
+    if (width < 100) {
+      width+=1;
+      elem.style.width = width + '%';
+      elem.innerHTML = width * 1 + '%';
+    }
+  
+}
+
+function animate_progressbar()
+{
+ $total_width=$("#progressbar_wrapper").width();
+ $width_inc=$total_width/10;
+ if($("#progressbar").width()<$total_width)
+ {
+  $width=$("#progressbar").width()+$width_inc;
+  $("#progressbar").animate({width:''+$width+''},300);
+ }
+}
+</script>
+
+<style>
+	#progressbar_wrapper
+{
+ border:1px solid #088A08;
+ width:300px;
+ height:35px;
+ border-radius:3px;
+ overflow:hidden;
+}
+#progressbar
+{
+ width:0px;
+ height:35px;
+ border-radius:0px;
+ background-color:green;
+}
+#progressbar_div input[type="button"]
+{
+ background-color:#088A08;
+ border:none;
+ width:150px;
+ height:40px;
+ color:white;
+ border-radius:3px;
+ border-bottom:3px solid #0B610B;
+}
+</style>
+</head>
+<body>
+  <div class="w3-container">
+    <div class="w3-light-grey">
+      <div id="myBar" class="w3-container w3-green w3-center" style="width:1%">1%</div>
+    </div>
+    <br>
+    <button class="w3-button w3-green" onclick="move()">Click Me</button>
+
+  </div>
+
+
+  <div id="progressbar_div">
+<div id="progressbar_wrapper">
+ <div id="progressbar"></div>
+</div>
+
+
+
+
+</body>
+
+</html>
